@@ -117,9 +117,45 @@
     
 }
  </style><img crossorigin="anonymous" src="/images/1729307865-Design%20sans%20titre%20%289%29.jpg" data-srcset="//img.funnelish.com/56550/558709/1729307865-Design%20sans%20titre%20%289%29.jpg 1x" alt="" data-sizes="auto" data-src="//img.funnelish.com/56550/558709/1729307865-Design%20sans%20titre%20%289%29.jpg" width="100%" height="auto" class="lazyautosizes lazyloaded" style="object-fit: scale-down;" sizes="1824px" srcset="/images/1729307865-Design%20sans%20titre%20%289%29.jpg 1x"></div></div></div></div></section></main></div><style id="el-hover-styles"></style>
-
-	 <script>document.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll("a").forEach((e=>{e.getAttribute("href")?.includes("#")||(e.getAttribute("href")?.includes("?")?e.setAttribute("href",e.getAttribute("href")+window.location.search.replace("?","&")):e.getAttribute("href")?e.setAttribute("href",e.getAttribute("href")+window.location.search):"")}))}));</script>	
-
+<script>
+// Adiciona um event listener quando a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+    // Encontra o botão pela classe
+    const btn = document.querySelector('.btn.btn-v2');
+    if (btn) {
+        // Guarda o link original do botão
+        const originalHref = btn.getAttribute('href');
+        
+        // Adiciona um event listener para o clique
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Pega os parâmetros da URL atual
+            const urlParams = new URLSearchParams(window.location.search);
+            let finalUrl = originalHref;
+            
+            // Adiciona o separador correto (? ou &)
+            const separator = finalUrl.includes('?') ? '&' : '?';
+            
+            // Adiciona cada parâmetro da URL atual
+            let paramsAdded = false;
+            urlParams.forEach((value, key) => {
+                if (!paramsAdded) {
+                    finalUrl += separator;
+                    paramsAdded = true;
+                } else {
+                    finalUrl += '&';
+                }
+                finalUrl += `${key}=${encodeURIComponent(value)}`;
+            });
+            
+            // Redireciona para a URL final
+            window.location.href = finalUrl;
+        });
+    }
+});
+</script>
+	
 <script>
 
     function atomiApplyParams({inputUrl}) {
