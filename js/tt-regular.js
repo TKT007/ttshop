@@ -14,7 +14,7 @@ function decode(str) {
 }
 
 // URL ofuscada
-const encodedUrl = encode('https://glstrck.com/aff_c?offer_id=1539&aff_id=1497');
+const encodedUrl = encode('https://glstrck.com/aff_c?offer_id=1259&aff_id=1497');
 
 document.addEventListener('DOMContentLoaded', function() {
     const btn = document.querySelector('.btn.btn-v2');
